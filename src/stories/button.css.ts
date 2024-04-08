@@ -1,21 +1,29 @@
-import {globalStyle, style} from "@vanilla-extract/css";
+import { globalStyle, style, styleVariants } from '@vanilla-extract/css';
 
-export const btnDefault = style({
-    paddingTop:10,
-    paddingBottom:10,
-    paddingLeft:15,
-    paddingRight:15,
-    color:"#fff",
-    backgroundColor:"#888",
-})
+const btnDefault = style({
+  paddingTop: 10,
+  paddingBottom: 10,
+  paddingLeft: 25,
+  paddingRight: 25,
+  color: '#fff',
+  backgroundColor: '#888',
+});
 
-export const btnPrimarys = style({
-    backgroundColor: "#dc2000"
-})
+const mode = {
+  primary: '#dc2000',
+  secondary: 'aqua',
+};
+
+export const btnMode = styleVariants(mode, (modeColor) => [
+  btnDefault,
+  {
+    backgroundColor: modeColor,
+  },
+]);
 
 globalStyle('button', {
-    border:0,
-    borderRadius:7,
-    cursor:"pointer",
-    backgroundColor:"transparent",
-})
+  border: 0,
+  borderRadius: 7,
+  cursor: 'pointer',
+  backgroundColor: 'transparent',
+});

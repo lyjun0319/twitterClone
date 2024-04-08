@@ -1,17 +1,16 @@
-"use client";
+'use client';
 import React from 'react';
-import {Button} from "@/stories/Button";
+import { Button } from '@/stories/Button';
 
 interface test {
-    label :string
+  label: string;
+  primary: boolean;
 }
-const ButtonTest = ({label}:test) => {
-    const handelClick = ()=>{
-        console.log("aa");
-    }
-    return (
-        <Button label={label} onClick={handelClick} />
-    );
+const ButtonTest = ({ label, primary }: test) => {
+  const handelClick = () => {
+    console.log('aa');
+  };
+  return <Button label={label} primary={primary} onClick={handelClick} />;
 };
 
 export default ButtonTest;
