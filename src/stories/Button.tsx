@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { btnMode } from './button.css';
+import { btnStyle } from './button.css';
 
 interface ButtonProps {
   /**
@@ -37,7 +37,8 @@ export const Button = ({
 }: ButtonProps) => {
   const mode = primary ? 'primary' : 'secondary';
   return (
-    <button type="button" className={`${btnMode[mode]}`} {...props}>
+    <button type="button" className={btnStyle({ mode, size })} {...props}>
+      {/*// <button type="button" className={`${btnMode[mode]} ${size}`} {...props}>*/}
       {label}
       <style jsx>{`
         button {
