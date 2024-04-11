@@ -1,10 +1,11 @@
 import React from 'react';
+import { taskSt } from '@/app/_components/Task.css';
 
 interface taskProp {
   task: {
     id: number;
     title: string;
-    state: boolean;
+    state?: boolean;
   };
   onArchiveTask?: boolean;
   onPinTask?: string;
@@ -14,10 +15,9 @@ export const Task = ({
   onArchiveTask = false,
   onPinTask,
 }: taskProp) => {
-  console.log(onArchiveTask);
   return (
     <div className="list-item">
-      <input type="text" value={title} readOnly={true} />
+      <input type="text" value={title} readOnly={true} className={taskSt} />
     </div>
   );
 };
