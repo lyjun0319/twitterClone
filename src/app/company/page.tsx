@@ -1,43 +1,42 @@
-// src/pages/index.tsx
+import React from 'react';
+import { ListPosts } from '@/lib/API/api-requests';
+import SessionCard from '@/app/_components/sessionCard';
+import { companySt, companyListSt } from '@/app/company/company.css';
 
-import { GetServerSideProps, NextPage } from 'next';
-
-interface Post {
+interface listType {
   id: number;
   name: string;
   age: number;
 }
 
-interface IndexPageProps {
-  name: string;
-  posts: Post[];
-}
+const Page = async ({}) => {
+  const data: listType[] = await ListPosts();
 
-const IndexPage: NextPage<IndexPageProps> = (props) => {
-  const { name, posts } = props;
+  if (!data) return false;
 
-  console.log(name);
   return (
-    <div>
-      <h1>Hello {name}!</h1>
-      {/*<ul>*/}
-      {/*  {posts.map((post) => (*/}
-      {/*    <li key={post.id}>{post.name}</li>*/}
-      {/*  ))}*/}
-      {/*</ul>*/}
+    <div className={companySt}>
+      <SessionCard>
+        <ul className={companyListSt}>
+          {data.map((item: listType) => {
+            const { id, name, age } = item;
+            return (
+              <li key={id}>
+                <div>
+                  <span>이름</span>
+                  <span>{name}</span>
+                </div>
+                <div>
+                  <span>나이</span>
+                  <span>{age}</span>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </SessionCard>
     </div>
   );
 };
 
-export const getServerSideProps: GetServerSideProps<IndexPageProps> = async () => {
-  const url = 'http://localhost:3009/member';
-  const posts: Post[] = await fetch(url).then((res) => res.json());
-  return {
-    props: {
-      name: 'Next',
-      posts: posts,
-    },
-  };
-};
-
-export default IndexPage;
+export default Page;
