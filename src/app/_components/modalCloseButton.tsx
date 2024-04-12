@@ -2,11 +2,6 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 
-interface test {
-  label: string;
-  primary: boolean;
-}
-
 const ModalCloseButton = () => {
   const router = useRouter();
   const onClickClose = () => {
