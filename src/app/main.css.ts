@@ -24,7 +24,8 @@ export const right = style({
 export const textH1 = style({
   fontWeight: 'bold',
   fontSize: 64,
-  marginBottom: '48px 0',
+  letterSpacing: '-2px',
+  marginBottom: '48px',
 });
 
 export const textH2 = style({

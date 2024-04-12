@@ -3,6 +3,8 @@ import {
   createThemeContract,
   globalLayer,
   globalStyle,
+  style,
+  styleVariants,
 } from '@vanilla-extract/css';
 
 globalLayer('reset');
@@ -52,4 +54,11 @@ globalStyle('body, html', {
   //     backgroundColor: colorSet.color.bgColor,
   //   },
   // },
+});
+
+const base = style({ padding: 12 });
+
+export const variant = styleVariants({
+  primary: [base, { background: 'blue' }],
+  secondary: [base, { background: 'aqua' }],
 });

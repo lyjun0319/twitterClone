@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import './reset.css';
 import './global.css';
 import { Inter } from 'next/font/google';
-import Header from '@/app/_components/header';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -10,11 +9,10 @@ export const metadata: Metadata = {
   description: 'Twitter NextJS Clone',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+type Props = {
   children: React.ReactNode;
-}>) {
+};
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <body>
