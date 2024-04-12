@@ -19,7 +19,7 @@ export const modal: Story = {
     },
   },
   args: {
-    children: `body`,
+    children: ``,
     title: '모달 타이틀입니다',
   },
 };
