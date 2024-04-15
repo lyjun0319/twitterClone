@@ -1,4 +1,4 @@
-import Modal from '@/app/(beforeLogin)/_component/modal';
+import Modal from '@/app/_components/modal';
 
 export default function SignupModal() {
   return (

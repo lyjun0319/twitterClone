@@ -1,72 +1,111 @@
-import { style } from '@vanilla-extract/css';
-import { virtualCssFileFilter } from '@vanilla-extract/integration';
+import { globalStyle, style, styleVariants } from '@vanilla-extract/css';
+import { inputBase } from '@/app/global.css';
+import { glob } from 'glob';
 
-export const mainContainer = style({
+export const container = style({
   display: 'flex',
   alignItems: 'center',
   backgroundColor: '#fff',
 });
 
-export const header = style({
+export const leftSectionWrapper = style({
   display: 'flex',
   alignItems: 'flex-end',
   flexDirection: 'column',
   flexGrow: 1,
 });
 
-export const headerInner = style({
+export const leftSection = style({
   width: 275,
   height: '100dvh',
-  backgroundColor: 'orange',
 });
 
-export const headerFixed = style({
+export const leftSectionFixed = style({
   position: 'fixed',
-  width: 'inherit',
-  height: 'inherit',
-});
-
-export const contents = style({
   display: 'flex',
-  flexGrow: 1,
-  alignItems: 'center',
-  height: '100vh',
+  flexDirection: 'column',
+  width: 'inherit',
+  height: '100dvh',
 });
 
-export const contentInr = style({
+globalStyle(`${leftSectionFixed} nav`, {
+  flex: 1,
+});
+
+globalStyle(`${leftSectionFixed} nav li`, {
+  listStyleType: 'none',
+});
+
+export const logo = style({
+  display: 'inline-block',
+  height: 56,
+  marginTop: 2,
+});
+
+export const logoPill = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: 50,
+  height: 50,
+  borderRadius: '50%',
+  ':hover': {
+    backgroundColor: 'rgba(15,20,25, 0.1)',
+  },
+});
+
+export const postButton = style({
+  margin: '16px 0',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: 52,
+  boxShadow: 'rgba(0, 0, 0, 0.08) 0px 8px 28px',
+  backgroundColor: 'rgb(29, 155, 240)',
+  width: 234,
+  border: 'none',
+  color: 'rgb(255, 255, 255)',
+  fontWeight: 700,
+  fontSize: 17,
+  borderRadius: 26,
+  ':hover': {
+    backgroundColor: 'rgb(26, 140, 216)',
+  },
+});
+
+export const rightSectionWrapper = style({
+  display: 'flex',
+  alignItems: 'flex-start',
+  flexDirection: 'column',
+  flexGrow: 1,
+  height: '100dvh',
+});
+
+export const rightSectionInner = style({
   display: 'flex',
   justifyContent: 'space-between',
   width: 990,
   height: '100%',
-  backgroundColor: 'aqua',
 });
 
 export const main = style({
   width: 600,
-  backgroundColor: 'aquamarine',
+  height: '200dvh',
 });
+
 export const rightSection = style({
   width: 350,
-  backgroundColor: 'blue',
+  height: '100%',
 });
 
-export const logoLink = style({
-  fontSize: 0,
-});
-
-export const navLink = style({
-  display: 'block',
-  padding: 12,
-  ':hover': {
-    borderRadius: 30,
-    backgroundColor: '#ddd',
-  },
-});
-
-export const navActive = style({
+export const followRecommend = style({
+  padding: '12px 16px',
+  margin: '12px 0',
+  fontSize: 20,
   fontWeight: 'bold',
+  backgroundColor: ' rgb(247, 249, 249)',
+  borderRadius: 16,
 });
-
-export const searchBox = style({
-  position: 'fixed',
+globalStyle(`${followRecommend} h3`, {
+  paddingBottom: 12,
 });

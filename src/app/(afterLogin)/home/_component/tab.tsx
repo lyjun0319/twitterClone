@@ -1,18 +1,28 @@
 'use client';
 import { useState } from 'react';
+import * as style from './tab.css';
 
 export default function Tab() {
-  const handleRecomend = () => {};
-  const handleFollow = () => {};
   const [tab, setTab] = useState('rec');
+
+  const onClickRec = () => {
+    setTab('rec');
+  };
+  const onClickFol = () => {
+    setTab('fol');
+  };
+
   return (
-    <div className={'homeFixed'}>
-      <div className={''}>홈</div>
-      <div className={''}>
-        <button onClick={handleRecomend}>추천</button>
-      </div>
-      <div className={''}>
-        <button onClick={handleFollow}>팔로우 중</button>
+    <div className={style.homeFixed}>
+      <div className={style.homeText}>홈</div>
+      <div className={style.homeTab}>
+        <div onClick={onClickRec}>
+          추천
+          <div className={style.tabIndicator} hidden={tab === 'fol'}></div>
+        </div>
+        <div onClick={onClickFol}>
+          팔로우 중<div className={style.tabIndicator} hidden={tab === 'rec'}></div>
+        </div>
       </div>
     </div>
   );

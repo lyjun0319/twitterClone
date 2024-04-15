@@ -44,16 +44,6 @@ createGlobalTheme(':root', colorSet, {
 globalStyle('body, html', {
   margin: 0,
   padding: 0,
-  // '@media': {
-  //   '(prefers-color-scheme : dark)': {
-  //     color: colorSet.color.bgColor,
-  //     backgroundColor: colorSet.color.bgColorDark,
-  //   },
-  //   '(prefers-color-scheme: light)': {
-  //     color: colorSet.color.bgColor,
-  //     backgroundColor: colorSet.color.bgColor,
-  //   },
-  // },
 });
 
 const base = style({ padding: 12 });
@@ -61,4 +51,11 @@ const base = style({ padding: 12 });
 export const variant = styleVariants({
   primary: [base, { background: 'blue' }],
   secondary: [base, { background: 'aqua' }],
+});
+
+export const inputBase = style({
+  outline: 'none',
+  border: 'none',
+  fontSize: 15,
+  backgroundColor: 'transparent',
 });

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import './reset.css';
 import './global.css';
-import { Inter } from 'next/font/google';
 
 export const metadata: Metadata = {
   title: 'Twitter',

@@ -2,8 +2,14 @@
 
 import { useSelectedLayoutSegment } from 'next/navigation';
 import Link from 'next/link';
-export default function NavLink(): React.ReactNode {
-  const sagment = useSelectedLayoutSegment();
+import * as style from './navMenu.css';
+
+export default function NavMenu(): React.ReactNode {
+  const segment = useSelectedLayoutSegment();
+  const me = {
+    // 임시로 내 정보 있는것처럼
+    id: 'zerohch0',
+  };
   return (
     <>
       <li>
@@ -77,9 +83,9 @@ export default function NavLink(): React.ReactNode {
         </Link>
       </li>
       <li>
-        <Link href="/messages">
+        <Link href="/message">
           <div className={style.navPill}>
-            {segment === 'messages' ? (
+            {segment === 'message' ? (
               <>
                 <svg
                   width={26}

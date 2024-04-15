@@ -1,54 +1,48 @@
 import { ReactNode } from 'react';
-import {
-  mainContainer,
-  header,
-  contents,
-  headerInner,
-  contentInr,
-  main,
-  rightSection,
-  logoLink,
-  searchBox,
-  headerFixed,
-} from '@/app/(afterLogin)/layout.css';
+import * as style from '@/app/(afterLogin)/layout.css';
 import Link from 'next/link';
-import NavLink from '@/app/(afterLogin)/_component/navLink';
+import NavMenu from '@/app/(afterLogin)/_component/navMenu';
 import LogoutButton from '@/app/(afterLogin)/_component/logoutButton';
 import TrendSection from '@/app/(afterLogin)/_component/trendSection';
 import FollowRecommend from '@/app/(afterLogin)/_component/followRecommend';
 
-export default function AfterLoginLayout({ children }: { children: ReactNode }) {
+import ZLogo from '../../../public/zlogo.png';
+import Image from 'next/image';
+import RightSearchZone from '@/app/(afterLogin)/_component/rightSearchZone';
+
+type Props = { children: ReactNode; modal: ReactNode };
+
+export default function AfterLoginLayout({ children, modal }: Props) {
   return (
-    <div className={mainContainer}>
-      <header className={header}>
-        <section className={headerInner}>
-          <div className={headerFixed}>
-            <h1>
-              <Link className={logoLink} href={'/'}>
-                x코드
-              </Link>
-            </h1>
+    <div className={style.container}>
+      <header className={style.leftSectionWrapper}>
+        <section className={style.leftSection}>
+          <div className={style.leftSectionFixed}>
+            <Link className={style.logo} href="/home">
+              <div className={style.logoPill}>
+                <Image src={ZLogo} alt="z.com로고" width={40} height={40} />
+              </div>
+            </Link>
             <nav>
               <ul>
-                <NavLink />
+                <NavMenu />
               </ul>
+              <Link href="/compose/tweet" className={style.postButton}>
+                게시하기
+              </Link>
             </nav>
-            <Link href={'/compose/tweet'}>Post</Link>
+            <LogoutButton />
           </div>
-          <LogoutButton />
         </section>
       </header>
-      <div className={contents}>
-        <div className={contentInr}>
-          <div className={main}>{children}</div>
-          <section className={rightSection}>
-            <div className={searchBox}>
-              <input type="search" />
-              <button type="button">검색</button>
-            </div>
+      <div className={style.rightSectionWrapper}>
+        <div className={style.rightSectionInner}>
+          <main className={style.main}>{children}</main>
+          <section className={style.rightSection}>
+            <RightSearchZone />
             <TrendSection />
-            <div>
-              <h3>팔로우추천</h3>
+            <div className={style.followRecommend}>
+              <h3>팔로우 추천</h3>
               <FollowRecommend />
               <FollowRecommend />
               <FollowRecommend />
@@ -56,6 +50,7 @@ export default function AfterLoginLayout({ children }: { children: ReactNode }) 
           </section>
         </div>
       </div>
+      {modal}
     </div>
   );
 }

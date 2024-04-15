@@ -1,6 +1,6 @@
 import * as style from '@/app/(afterLogin)/_component/rightSearchZone.css';
 
-export default function searchForm() {
+export default function SearchForm() {
   return (
     <form className={style.search}>
       <svg width={20} viewBox="0 0 24 24" aria-hidden="true">

@@ -1,4 +1,4 @@
-import { modalWrap, modal, modalHeader } from '@/app/(beforeLogin)/_component/modal.css';
+import { modalWrap, modal, modalHeader } from '@/app/_components/modal.css';
 
 import ModalCloseButton from '@/app/_components/modalCloseButton';
 

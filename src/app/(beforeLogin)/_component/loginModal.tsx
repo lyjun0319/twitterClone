@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import Modal from '@/app/(beforeLogin)/_component/modal';
+import Modal from '@/app/_components/modal';
 
 export default function LoginModal() {
   const [id, setId] = useState();
