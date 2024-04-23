@@ -25,9 +25,8 @@ function showMessage(msg: string) {
     return '이미 사용 중인 아이디입니다.';
   }
 }
-
 export default function SignupModal() {
-  const [state, formAction] = useFormState(onSubmit, { message: null });
+  const [state, formAction] = useFormState(onSubmit, { message: '' });
   const { pending } = useFormStatus();
 
   return (
